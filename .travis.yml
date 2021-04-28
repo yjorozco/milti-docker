@@ -9,12 +9,12 @@ script:
   - docker run yjorozco/react-test npm test -- --coverage
 
 after_success: 
-  - docker build -f yjorozco/multi-client ./client
-  - docker build -f yjorozco/multi-nginx ./nginx
-  - docker build -f yjorozco/multi-server ./server
-  - docker build -f yjorozco/multi-worker ./worker
+  - docker build -f multi-client ./client
+  - docker build -f multi-nginx ./nginx
+  - docker build -f multi-server ./server
+  - docker build -f multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"  --password-stdin
-  - docker push yjorozco/multi-client
-  - docker push yjorozco/multi-nginx
-  - docker push yjorozco/multi-server
-  - docker push yjorozco/multi-worker
+  - docker push multi-client
+  - docker push multi-nginx
+  - docker push multi-server
+  - docker push multi-worker
